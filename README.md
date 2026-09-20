@@ -117,8 +117,8 @@ When extraction is complete, the app generates an `output/portfolio.xlsx` file c
 4.  **Stock Dividend**: Formatted template for stock dividend tracking.
 
 
-  ![Screenshot-1](https://github.com/FariazKhan/stockanalysis-scraper-gui/screenshots/1.png)
+  ![Screenshot-1](https://github.com/FariazKhan/stockanalysis-scraper-gui/blob/main/screenshots/1.png)
 
-  ![Screenshot-2](https://github.com/FariazKhan/stockanalysis-scraper-gui/screenshots/2.png)
+  ![Screenshot-2](https://github.com/FariazKhan/stockanalysis-scraper-gui/blob/main/screenshots/2.png)
 
-  ![Screenshot-3](https://github.com/FariazKhan/stockanalysis-scraper-gui/screenshots/3.png)
+  ![Screenshot-3](https://github.com/FariazKhan/stockanalysis-scraper-gui/blob/main/screenshots/3.png)
