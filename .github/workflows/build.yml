@@ -1,0 +1,58 @@
+name: Build and Release GUI App
+
+on:
+  push:
+    tags:
+      - 'v*' # Triggers workflow when you push a tag like v1.0.0
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Dependencies
+        run: |
+          pip install pyinstaller customtkinter playwright pandas openpyxl numpy
+          playwright install chromium
+
+      - name: Build with PyInstaller (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          pyinstaller --noconsole --onefile --name "DSE_Scraper_Windows" gui.py
+
+      - name: Build with PyInstaller (macOS)
+        if: runner.os == 'macOS'
+        run: |
+          pyinstaller --noconsole --onefile --windowed --name "DSE_Scraper_macOS" gui.py
+          cd dist
+          zip -r DSE_Scraper_macOS.zip DSE_Scraper_macOS.app
+
+      - name: Upload Release Assets (Windows)
+        if: runner.os == 'Windows'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/DSE_Scraper_Windows.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Assets (macOS)
+        if: runner.os == 'macOS'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/DSE_Scraper_macOS.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
