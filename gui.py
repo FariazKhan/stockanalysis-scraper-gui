@@ -21,6 +21,10 @@ import customtkinter as ctk
 import tkinter.messagebox as messagebox
 from playwright.sync_api import sync_playwright
 
+# Force Playwright to use the standard user directory for browsers instead of the PyInstaller Temp folder
+local_app_data = os.environ.get("LOCALAPPDATA", os.path.join(os.path.expanduser("~"), "AppData", "Local"))
+os.environ["PLAYWRIGHT_BROWSERS_PATH"] = os.path.join(local_app_data, "ms-playwright")
+
 # Ensure playwright browsers are installed
 try:
     if os.name == 'nt':
