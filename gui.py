@@ -3,13 +3,30 @@ import sys
 import json
 import threading
 import subprocess
+import multiprocessing
+
+if __name__ == '__main__':
+    multiprocessing.freeze_support()
+    
+    # PyInstaller Fork-Bomb Fix:
+    # When frozen, sys.executable points to this .exe.
+    # When we try to run `sys.executable -m playwright`, it launches our .exe again!
+    # We intercept this argument and route it to the Playwright installer natively.
+    if len(sys.argv) >= 3 and sys.argv[1] == "-m" and sys.argv[2] == "playwright":
+        sys.argv = ["playwright"] + sys.argv[3:]
+        from playwright.__main__ import main
+        sys.exit(main())
+
 import customtkinter as ctk
 import tkinter.messagebox as messagebox
 from playwright.sync_api import sync_playwright
 
 # Ensure playwright browsers are installed
 try:
-    subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True, creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
+    if os.name == 'nt':
+        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True, creationflags=subprocess.CREATE_NO_WINDOW)
+    else:
+        subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
 except Exception:
     pass # Ignore errors and let it try to run
 
