@@ -2,8 +2,7 @@
 # 📈 Stockanalysis Scraper
 
   
-A standalone GUI application to effortlessly extract fundamental data, financial ratios, dividends, and historical prices for stocks from StockAnalysis. The project was built on top of https://github.com/ZAIDMOHD777/stockanalysis .
-
+A standalone GUI application to effortlessly extract fundamental data, financial ratios, dividends, and historical prices for stocks from StockAnalysis.
   
 
 No coding, terminal commands, or complicated setups required!
@@ -81,27 +80,6 @@ chmod  +x  build-mac.sh
 ```
 
 Your compiled `.app` bundle will be generated in the `dist/` folder.
-
-  
-
-## ☁️ Automated GitHub Releases (CI/CD)
-
-This project is configured with GitHub Actions to automatically compile and release binaries for both Windows and Mac in the cloud.
-
-  
-
-To trigger an automatic build and release:
-
-```bash
-
-git  tag  v1.0.0
-
-git  push  origin  v1.0.0
-
-```
-
-Check the repository's **Releases** page to download your fresh executables!
-
   
 
 ## 📁 Output Structure
