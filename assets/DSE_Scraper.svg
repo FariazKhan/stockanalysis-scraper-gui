@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#183956"/><stop offset="0.58" stop-color="#102740"/><stop offset="1" stop-color="#091a30"/>
+  </linearGradient>
+  <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#defcf5"/><stop offset="1" stop-color="#7bbdbc"/>
+  </linearGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#32d7a3"/><stop offset="1" stop-color="#60f3c7"/>
+  </linearGradient>
+  <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="24"/>
+  </filter>
+</defs>
+<!-- Opaque tile with rounded corners; transparent outer corners -->
+<rect width="1024" height="1024" rx="230" fill="url(#bg)"/>
+<rect x="26" y="26" width="972" height="972" rx="210" fill="none" stroke="#a7cddd" stroke-width="5" opacity="0.14"/>
+<!-- Sparse chart guides keep the pictogram unmistakably financial -->
+<g stroke="#9fbace" stroke-width="9" opacity="0.14">
+  <path d="M180 325H835M180 515H835M180 705H835"/>
+</g>
+<!-- Tiny chart/bar motif -->
+<g fill="url(#bar)">
+  <rect x="211" y="577" width="118" height="207" rx="34" opacity="0.88"/>
+  <rect x="383" y="481" width="118" height="303" rx="34" opacity="0.95"/>
+  <rect x="555" y="373" width="118" height="411" rx="34"/>
+</g>
+<!-- Trend line: shadow and then saturated mint stroke -->
+<path d="M196 654 L356 558 L477 618 L700 349" stroke="#18aa81" stroke-width="58" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.22" filter="url(#shadow)"/>
+<path d="M196 654 L356 558 L477 618 L700 349" stroke="#0d233b" stroke-width="62" stroke-linecap="round" stroke-linejoin="round" fill="none" opacity="0.92"/>
+<path d="M196 654 L356 558 L477 618 L700 349" stroke="url(#green)" stroke-width="39" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<!-- Bold, clear arrow terminal -->
+<path d="M598 337 L739 305 L716 453" stroke="#0d233b" stroke-width="62" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<path d="M598 337 L739 305 L716 453" stroke="url(#green)" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

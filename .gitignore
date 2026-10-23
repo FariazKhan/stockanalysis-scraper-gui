@@ -1,0 +1,15 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+dist/
+build/
+*.spec
+cookies.json
+browser_session.json
+user_session.json
+data/
+output/
+*.log
+setup_browser.cmd
+.setup_result.txt
